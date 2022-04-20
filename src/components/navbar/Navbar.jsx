@@ -17,7 +17,7 @@ export default class Navbar extends React.Component {
     console.log(this.state);
     const rows = this.state.categories.map(categories => <NavbarRow key={categories.id} categories={categories} />);
     return (
-      [ rows ]
-  );
+      [rows]
+    );
   }
 }
