@@ -2,8 +2,12 @@ export default function Footer(props) {
 
     return (
         <div>
-                <h1>Chi Siamo!</h1>
-                <h1>Contatti</h1>
+            <div>
+            <a href="ChiSiamo.html">Chi Siamo</a>
+            </div>
+            <div>
+            <a href="Contatti.html">Contatti</a>
+            </div>
         </div>
     )
 }
