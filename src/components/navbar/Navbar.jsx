@@ -1,30 +1,23 @@
-export default function Navbar(props) {
+import React from "react";
+import axios from "axios";
+import NavbarRow from "../navbar-row/NavbarRow";
 
-
-  return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="navbar-brand" aria-current="page">Home</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page">Apple</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page">Samsung</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page">Huawei</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page">Xiaomi</a>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </nav>
-  )
+export default class Navbar extends React.Component {
+  state = {
+    categories: []
+  }
+  componentDidMount() {
+    axios.get(`http://wordpress.test/wp-json/wp/v2/categories`)
+      .then(res => this.setState({
+        categories: res.data
+      }))
+      .catch(err => console.log(err));
+  }
+  render() {
+    console.log(this.state);
+    const rows = this.state.categories.map(categories => <NavbarRow key={categories.id} categories={categories} />);
+    return (
+      [ rows ]
+  );
+  }
 }
