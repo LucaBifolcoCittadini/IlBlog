@@ -3,14 +3,15 @@ import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import PostsCard from './components/posts-card/PostsCard';
+import CategoriesList from './components/categories-list/CategoriesList';
 
 function App() {
   return (
-    <div className="App container">
+    <div>
       <header>
-        <Navbar />
+      <Navbar />
       </header>
-        <PostsCard />
+      <PostsCard />
       <footer>
         <Footer />
       </footer>
